@@ -2,11 +2,11 @@ version: 1.0.0
 events:
   build:
     steps:
-      - hello:
+      - composer:
           type: script
           script:
-            - mkdir docroot
-            - echo "<h1>Hello, Pipelines!</h1>" > docroot/index.html
+            # The composer create project files and settings.php db and profile configurations have been provided in the tutorial branch or release. We only need run composer.
+            - composer install --no-progress
       - deploy:
           script:
             - pipelines-deploy
