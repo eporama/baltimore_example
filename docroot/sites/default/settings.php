@@ -775,6 +775,8 @@ $settings['entity_update_batch_size'] = 50;
 # }
 
 # Database configuration line using Acquia Cloud Environment Variables
-require("/var/www/site-php/".$_ENV['AH_SITE_GROUP']."/".$_ENV['AH_SITE_GROUP']."-settings.inc");
+if (file_exists("/var/www/site-php")) {
+  require("/var/www/site-php/".$_ENV['AH_SITE_GROUP']."/".$_ENV['AH_SITE_GROUP']."-settings.inc");
+}
 
 $settings["install_profile"] = "lightning";
